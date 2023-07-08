@@ -5,10 +5,7 @@
 const evaluationArea = document.querySelector("#evaluation-area")
 console.log("evaluationArea", evaluationArea)
 
-
-
 const saludar = () => {
-
     return "Hola!"
 }
 
@@ -132,5 +129,80 @@ console.log("evaluación", evaluacion)
 
 evaluationArea.innerHTML = `<p>La evaluación de Andrea es: <b>${evaluacion[2]}</b></p>`
 
+
+// 3. FIND
+// ACCEDER A CADA ELEMENTO DEL ARREGLO, Y, AL COINCIDIR EL VALOR DE BÚSQUEDA CON UNO DE LOS ELEMENTOS, RETORNA EL VALOR.
+// DEVUELVE LA PRIMERA COINCIDENCIA
+
+const edades = [13, 20, 15, 18, 22, 13]
+
+const encuentraAlPrimerMenorDeEdad = edades.find(edad => {
+    return 18 >= edad
+})
+
+console.log("evaluarMayoriaDeEdad", encuentraAlPrimerMenorDeEdad)
+
+
+// 4. FILTER
+// ITERA SOBRE CADA ELEMENTO DEL ARREGLO Y FILTRA DE ACUERDO A LA CONDICIÓN LOS ELEMENTOS, CREANDO UN NUEVO ARREGLO
+
+const edadesConNombre = [
+    {nombre: "Persona 1", edad: 13},
+    {nombre: "Persona 2", edad: 25},
+    {nombre: "Persona 3", edad: 18},
+]
+
+const encuentraTodosLosMenoresDeEdad = edadesConNombre.filter(persona => {
+    return 18 >= persona.edad
+})
+
+console.log("encuentraTodosLosMenoresDeEdad", encuentraTodosLosMenoresDeEdad)
+
+
+// YEAH, THIS ONE IS RECOMMENDED
+// BONUS
+// INCLUDES
+
+// CICLOS
+// 5. FOR
+
+for(let number = 0; number < 8; number++){
+    console.log(number)
+}
+
+// PROMEDIO DE ESTUDIANTES
+// DE ACUERDO A UNA BASE DE DATOS, CONTAMOS CON UN OBJETO DE NOMBRES Y CALIFICACIONES
+// DETERMINA SI EL ESTUDIANTE APROBO O NO (ARRIBA DE 70)
+
+let estudiantes = [
+    {nombre: "Estudiante 1", calificaciones: [80, 10 ,100]},
+    {nombre: "Estudiante 2", calificaciones: [80, 90 ,100]},
+    {nombre: "Estudiante 3", calificaciones: [10, 20 ,60]}
+]
+
+// console.log(estudiantes.length)
+for(let i = 0; i < estudiantes.length; i++){
+    let estudiante = estudiantes[i]
+    console.log(estudiante)
+
+    let suma = 0
+
+    for(let j = 0; j < estudiante.calificaciones.length; j++){
+        suma += estudiante.calificaciones[j]
+    }
+
+    let promedio = suma / estudiante.calificaciones.length
+    console.log(promedio)
+
+    if(promedio < 70) {
+        console.log(`El estudiante ${estudiante.nombre} reprobó con ${promedio}. Triste historia`)
+    } else {
+        console.log(`El estudiante ${estudiante.nombre} aprobó con ${promedio}. Linda historia`)
+    }
+}
+
+
+
+// 6. FOREACH
 
 
